@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import HomePage from './Components/HomePage';
+import MatrimonialProfiles from './Components/MatrimonialProfiles';
+import CommunitySection from './Components/CommunitySection';
+import BlogPage from './Components/BlogPage';
+import ContactPage from './Components/ContactPage';
 import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+        <HomePage/>
+        <Routes>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/matrimonial" component={MatrimonialProfiles} />
+          <Route path="/community" component={CommunitySection} />
+          <Route path="/blog" component={BlogPage} />
+          <Route path="/contact" component={ContactPage} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
